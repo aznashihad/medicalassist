@@ -1,0 +1,44 @@
+{% extends 'admin/adminbase.html' %}
+
+{% block content %}
+<h1>Donation Requests List</h1>
+<table class="table table-success table-striped">
+  <thead>
+    <tr>
+      <th scope="col">sl no</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Medicine</th>
+      <th scope="col">Date</th>
+
+
+      <th scope="col">Admin Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for donation in donations %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ donation.customer_name }}</td>
+      <td>{{ donation.amount }}</td>
+      <td>{{ donation.medicine_details }}</td>
+      <td>{{ donation.date}}</td>
+      <td>
+
+
+        {% if donation.company_approved %}
+        <form method="post" action="{% url 'admin_approve' donation.id %}">
+          {% csrf_token %}
+          <button type="submit" name="action" value="approve" class="btn btn-success">Admin Approve</button>
+          <button type="submit" name="action" value="reject" class="btn btn-danger">Admin Reject</button>
+
+        </form>
+        {% else %}
+        <p>Company approval pending</p>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

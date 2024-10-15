@@ -1,0 +1,30 @@
+{% extends 'admin/adminbase.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+		      	<h3 class="mb-4 text-center">Feedback Response</h3>
+		      	<form  method='post'>
+					{% csrf_token %}
+		      		<div class="form-group">
+                    <label class=" form-control-label">Date</label>
+                    <input  required  class="form-control" readonly value="{{feedback.date}}">
+
+                	</div>
+					<div class="form-group">
+					<label class=" form-control-label">Customer Feedback</label>
+                    <input  required  class="form-control" readonly value="{{feedback.feedback}}">
+					</div>
+                	</div>
+				<div class="form-group">
+                    <label for="company" class=" form-control-label">Replay</label>
+                    <textarea cols="3" rows="7" required id="company" class="form-control" name="replay">
+                </textarea>
+                </div>
+	           <div class="form-group">
+	            	<button type='submit' class="form-control btn btn-primary submit px-3">Replay</button>
+	            </div>
+
+	          </form>
+
+{% endblock %}

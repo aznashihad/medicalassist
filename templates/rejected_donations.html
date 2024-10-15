@@ -1,0 +1,43 @@
+{% extends 'company/organisationbase.html' %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejected Donations</title>
+</head>
+<body>
+    <h1>Rejected Donations</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Company Name</th>
+                <th>Customer Name</th>
+                <th>Amount</th>
+                <th>Medicine Details</th>
+                <th>Date</th>
+                <th>Contact No.</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for donation in donations %}
+            <tr>
+                <td>{{ donation.id }}</td>
+                <td>{{ donation.company.name }}</td>
+                <td>{{ donation.customer_name }}</td>
+                <td>{{ donation.amount }}</td>
+                <td>{{ donation.medicine_details }}</td>
+                <td>{{ donation.date }}</td>
+                <td>{{ donation.contact_no }}</td>
+                <td>{{ donation.email }}</td>
+                <td>{{ donation.address }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock %}

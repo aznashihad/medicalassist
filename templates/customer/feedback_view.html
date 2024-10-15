@@ -1,0 +1,64 @@
+
+
+{% extends 'customer/customerbase.html' %}
+
+{% block content %}
+
+{% load crispy_forms_filters %}
+<table class="table table-success table-striped">
+  ...
+
+  <thead>
+    <tr>
+
+<h1>FEEDBACKS</h1>
+
+      <th scope="col">slno</th>
+      <th scope="col">date</th>
+      <th scope="col">feedback</th>
+<!--      <th scope="col">replay</th>-->
+        <th scope="col">delete</th>
+
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+
+     {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.feedback}}</td>
+
+
+
+
+        {% if i.replay == None %}
+        <td>
+<!--        <h1>not replied</h1>-->
+        {% else %}
+<!--        <td>{{i.replay}}</td>-->
+        {% endif %}
+
+
+<!--        <button type="submit">Submit </button>-->
+ <td>
+    <form action="{% url 'feedback_delete' i.id %}" method ="POST">
+
+        {% csrf_token %}
+<!--         <button type="submit" class="btn btn-warning">Replay</button>-->
+        <button type="submit" class="btn btn-warning">delete</button>
+
+    </form>
+    </td>
+    </tr>
+
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+

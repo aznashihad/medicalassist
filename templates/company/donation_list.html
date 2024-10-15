@@ -1,0 +1,61 @@
+<!--{% extends 'company/organisationbase.html' %}-->
+
+<!--{% block content %}-->
+<!--<head>-->
+<!--    <title>Donation List</title>-->
+<!--    <style>-->
+<!--        table {-->
+<!--            width: 100%;-->
+<!--            border-collapse: collapse;-->
+<!--        }-->
+<!--        table, th, td {-->
+<!--            border: 1px solid black;-->
+<!--        }-->
+<!--        th, td {-->
+<!--            padding: 15px;-->
+<!--            text-align: left;-->
+<!--        }-->
+<!--        th {-->
+<!--            background-color: #f2f2f2;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Approved Donations</h1>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>Customer name</th>-->
+<!--            <th>Amount</th>-->
+<!--            <th>Date</th>-->
+<!--        </tr>-->
+<!--        {% for donation in approved_donations %}-->
+<!--        <tr>-->
+<!--            <td>{{ donation.id }}</td>-->
+<!--            <td>{{ donation.customer.name }}</td>-->
+<!--            <td>{{ donation.amount }}</td>-->
+<!--            <td>{{ donation.date }}</td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--    </table>-->
+
+<!--    <h1>Rejected Donations</h1>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>Customer name</th>-->
+<!--            <th>Amount</th>-->
+<!--            <th>Date</th>-->
+<!--        </tr>-->
+<!--        {% for donation in rejected_donations %}-->
+<!--        <tr>-->
+<!--            <td>{{ donation.id }}</td>-->
+<!--            <td>{{ donation.customer.name }}</td>-->
+<!--            <td>{{ donation.amount }}</td>-->
+<!--            <td>{{ donation.date }}</td>-->
+<!--        </tr>-->
+<!--        {% endfor %}-->
+<!--    </table>-->
+<!--</body>-->
+<!--</html>-->
+<!--{% endblock %}-->

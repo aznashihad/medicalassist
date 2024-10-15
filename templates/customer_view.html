@@ -1,0 +1,46 @@
+
+
+{% extends 'admin/adminbase.html' %}
+
+{% block content %}
+
+
+<table class="table table-success table-striped">
+  ...
+  <h1>Customer List</h1>
+  <thead>
+    <tr>
+
+
+
+      <th scope="col">sl no</th>
+      <th scope="col">name</th>
+      <th scope="col">contact_no</th>
+      <th scope="col">email</th>
+
+       <th scope="col">delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.contact_no}}</td>
+      <td>{{i.email}}</td>
+      <td>
+    <form action="{% url 'customer_delete' i.id %}" method ="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning">delete</button>
+    </form>
+    </td>
+    </tr>
+
+
+{% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

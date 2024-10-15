@@ -1,0 +1,33 @@
+{% extends 'company/organisationbase.html' %}
+
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Approve Donation</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+       <div class="container">
+ {% if messages %}
+            <div class="alert alert-success" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    <h1>Approve Donation</h1>
+    <p>Customer Name: {{ donation.customer_name }}</p>
+    <p>Amount: {{ donation.amount }}</p>
+    <p>Medicine Details: {{ donation.medicine_details }}</p>
+    <p>Date: {{ donation.date }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="action" value="approve">Approve</button>
+        <button type="submit" name="action" value="reject">Reject</button>
+    </form>
+    <a href="{% url 'organisationbase' %}">Back to organisationbase</a>
+</body>
+</html>
+{% endblock %}

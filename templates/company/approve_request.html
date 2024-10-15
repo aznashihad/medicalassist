@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Details</title>
+</head>
+<body>
+    <h1>Request Details</h1>
+    <p><strong>Customer Name:</strong> {{ request.customer_name }}</p>
+    <p><strong>Medicine Name:</strong> {{ request.medicine.name }}</p>
+    <p><strong>Date Requested:</strong> {{ request.date_requested }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {% if request.status == 'pending_company' %}
+            <button type="submit" name="action" value="approve_company">Approve as Company</button>
+        {% elif request.status == 'pending_admin' %}
+            <button type="submit" name="action" value="approve_admin">Approve as Admin</button>
+        {% endif %}
+        <button type="submit" name="action" value="reject">Reject</button>
+    </form>
+    <a href="{% url 'view_recipient_requests' %}">Back to Requests</a>
+</body>
+</html>

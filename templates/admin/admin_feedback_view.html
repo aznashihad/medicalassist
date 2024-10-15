@@ -1,0 +1,33 @@
+{% extends 'admin/adminbase.html' %}
+{% block content %}
+<h5>Feedbacks</h5>
+<br>
+<table class="table table-success table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sl no.</th>
+
+      <th scope="col">Date</th>
+      <th scope="col">Feedback</th>
+      <th scope="col">Admin Replay</th>
+      <th scope="col">Replay</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+
+      <td>{{i.date}}</td>
+       <td>{{i.feedback}}</td>
+       <td>{{i.replay}}</td>
+      <td><a href="{% url 'update' i.id %}" class="btn btn-info">Replay</a></td>
+
+    </tr>
+   {% endfor %}
+     </tbody>
+
+</table>
+{% endblock %}
